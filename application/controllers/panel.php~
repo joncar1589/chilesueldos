@@ -350,8 +350,8 @@ class Panel extends Main {
         
         $crud = new ajax_grocery_CRUD();
         $crud->set_theme('flexigrid');
-        $crud->set_table('contratos');
-        $crud->set_subject('Contrato');
+        $crud->set_table('trabajadores');
+        $crud->set_subject('Empleado');
         $crud->set_relation('sistema_salud_afiliado', 'isapre', 'nombre');
         $crud->set_relation('afp_afiliado', 'afp', 'nombre');
         $crud->set_relation('pais', 'paises', 'nombre');

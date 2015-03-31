@@ -87,7 +87,7 @@ class Empresa extends Panel {
             
             if(!empty($x) && !empty($y)){
             
-            $crud = parent::contratos($x,$y);
+            $crud = parent::empleados($x,$y);
             $crud->set_model('user_privilege2');
             $crud->field_type('user','invisible')
                  ->field_type('hora_salida','invisible');            

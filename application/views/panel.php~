@@ -70,8 +70,7 @@
               <div id="collapseTwo" class="panel-collapse collapse">
                 <div class="panel-body" align="center">
                   <a href="<?= base_url('empresa/emp') ?>"><div class="col-lg-2 well"><i class="fa fa-building-o"></i><br/> Empresa</div></a>
-                  <a href="<?= base_url('empresa/empleados') ?>"><div class="col-lg-2 well"><i class="fa fa-group"></i><br/> Empleados</div></a>
-		  <a href="<?= base_url('empresa/contratos') ?>"><div class="col-lg-2 well"><i class="fa fa-group"></i><br/> Contratos</div></a>                                                                        
+                  <a href="<?= base_url('empresa/empleados') ?>"><div class="col-lg-2 well"><i class="fa fa-group"></i><br/> Empleados</div></a>                                    
                   <a href="<?= base_url('empresa/sca') ?>"><div class="col-lg-2 well"><i class="fa fa-money"></i><br/> DBSCA</div></a>                  
                   <a href="<?= base_url('empresa/liquidaciones') ?>"><div class="col-lg-2 well"><i class="fa fa-money"></i><br/> Liquidaciones</div></a>
                   <a href="<?= base_url('empresa/finiquitos') ?>"><div class="col-lg-2 well"><i class="fa fa-money"></i><br/> Finiquitos</div></a>
