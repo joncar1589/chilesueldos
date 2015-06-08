@@ -85,8 +85,7 @@ class Main extends CI_Controller {
     }
 
     public function unlog() {
-        $this->user->unlog();
-        $_SESSION['user'] = 'clean';
+        $this->user->unlog();        
         header("Location:" . site_url());
     }
 
@@ -101,6 +100,10 @@ class Main extends CI_Controller {
         $this->load->view($view, $data);
     }
     
+    function error404(){
+            $this->loadView(array('view'=>'errors/403'));
+        }
+        
      // se agrego las variables reenviar y empresa, esto es para que al momento de utilizar la opcion
     // Reenviar en la pagina de liquidaciones, se envie la notificacion a todos los usuarios que tienen
     // Asignada esa empresa

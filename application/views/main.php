@@ -1,4 +1,4 @@
-<?php //$this->load->view('includes/banner'); ?>
+<?php $this->load->view('includes/header'); ?>            
 <?php $this->load->view('includes/banner2') ?>
 
 <!--- Botonera ---->
@@ -20,3 +20,4 @@
         </div>
     </div>
 </div>
+<?php $this->load->view('includes/footer') ?>

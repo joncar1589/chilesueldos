@@ -1,0 +1,21 @@
+.flexigrid tr:hover{
+    background:lightgray;
+}
+.loading {
+    animation: rotate .7s infinite linear;
+    -webkit-animation: rotate2 .7s infinite linear;
+}
+
+@-webkit-keyframes rotate2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes rotate {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.pagination li{
+    cursor:pointer;
+}

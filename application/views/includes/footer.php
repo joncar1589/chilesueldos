@@ -1,4 +1,4 @@
-<footer>
+<footer class="row">
     <div class="row">
         <div class="col-xs-2">
             <?= img('img/logo.png','width:100%') ?>

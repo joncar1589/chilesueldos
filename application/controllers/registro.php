@@ -1,20 +1,20 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 require_once('main.php');
 class Registro extends Main {
-        
-	public function __construct()
-	{
+
+        public function __construct()
+        {
             parent::__construct();
             if(!empty($_SESSION['user']))
                 header("Location:".base_url('panel'));
-	}
-        
+        }
+
         public function index($url = 'main',$page = 0)
-	{
+        {
             $crud = new ajax_grocery_CRUD();
-            $crud->set_theme('registro');
+            $crud->set_theme('bootstrap2');
             $crud->set_table('user');
-            $crud->set_subject('Usuarios');
+            $crud->set_subject('Usuario');
             $crud->set_primary_key('id','user');
             $crud->set_primary_key('id','paises');            
             $crud->set_primary_key('id','ciudades');            
@@ -23,7 +23,7 @@ class Registro extends Main {
             $crud->set_relation('pais','paises','nombre');
             $crud->set_relation('ciudad','ciudades','nombre');
             $crud->set_relation_dependency('ciudad','pais','pais');
-            
+
             //Fields
             $crud->field_type('sexo','enum',array('M','F'))
                  ->field_type('created','invisible')
@@ -38,7 +38,7 @@ class Registro extends Main {
                  ->field_type('finiquitos_free','invisible')
                  ->field_type('saldo','invisible')
                  ->set_field_upload('fotoadjunto','files');
-            
+
             //unsets
             $crud->unset_back_to_list()
                  ->unset_delete()
@@ -81,11 +81,11 @@ class Registro extends Main {
             $crud->callback_before_insert(array($this,'binsertion'));
             $crud->callback_after_insert(array($this,'ainsertion'));
             $output = $crud->render();
-            $output->view = 'panel';
+            $output->view = 'registro';
             $output->crud = 'registro';
             $this->loadView($output);
-	}
-        
+        }
+
         function conectar()
         {
             $this->loadView('predesign/login');
@@ -103,13 +103,13 @@ class Registro extends Main {
             $post['fecha_registro'] = date("Y-m-d");
             return $post;
         }
-        
+
         function ainsertion($post,$id)
         {    
             $this->user->login_short($id);            
             return true;
         }
-        
+
         function forget($key = '')
         {
             if(empty($_POST) && empty($key))
@@ -201,12 +201,12 @@ class Registro extends Main {
            else
                echo $this->form_validation->error_string();
         }
-        
+
         function direccionField()
         {
             return form_input('direccion','','id="field-direccion" placeholder="Calle/Avenida/Residencia/Casa"');
         }
-		
+
 }
 
 /* End of file welcome.php */

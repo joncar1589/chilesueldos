@@ -411,4 +411,10 @@
                 }
             }
         }
+        
+        function myException($exception)
+        {
+           echo get_instance()->load->view('template',array('view'=>'errors/404','msj'=> $exception->getMessage()),TRUE); 
+        }
+        set_exception_handler('myException');
 ?>

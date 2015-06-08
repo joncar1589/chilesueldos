@@ -158,3 +158,29 @@ footer a{
 .z-tabs.vertical.z-shadows > ul, .z-tabs.vertical.z-shadows > .z-container {
     box-shadow:none !important;
 }
+
+
+/********************** ACE PLUGIN ********************/
+.navbar {
+    background: #ff9023 none repeat scroll 0 0;
+    border-radius: 0;
+    border-width: 0;
+    box-shadow: none;
+    margin: 0;
+    min-height: 45px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.ace-nav > li.light-blue > a {
+    background-color: #d34300;
+}
+
+.ace-nav > li.light-blue > a:hover, .ace-nav > li.light-blue > a:focus, .ace-nav > li.open.light-blue > a {
+    background-color: #ff9023;
+}
+
+
+.sidebar .sidebar-toggle::before {
+    border:0px;
+}

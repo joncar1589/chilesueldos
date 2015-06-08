@@ -1,37 +1,5 @@
 <?php
-/**
- * PHP grocery CRUD
- *
- * A Codeigniter library that creates a CRUD automatically with just few lines of code.
- *
- * Copyright (C) 2010 - 2012  John Skoumbourdis.
- *
- * LICENSE
- *
- * Grocery CRUD is released with dual licensing, using the GPL v3 (license-gpl3.txt) and the MIT license (license-mit.txt).
- * You don't have to do anything special to choose one license or the other and you don't have to notify anyone which license you are using.
- * Please see the corresponding license file for details of these licenses.
- * You are free to use, modify and distribute this software, but all copyright information must remain.
- *
- * @package    	grocery CRUD
- * @copyright  	Copyright (c) 2010 through 2012, John Skoumbourdis
- * @license    	https://github.com/scoumbourdis/grocery-crud/blob/master/license-grocery-crud.txt
- * @version    	1.4.1
- * @author     	John Skoumbourdis <scoumbourdisj@gmail.com>
- */
 
-// ------------------------------------------------------------------------
-
-/**
- * grocery Field Types
- *
- * The types of the fields and the default reactions
- *
- * @package    	grocery CRUD
- * @author     	John Skoumbourdis <scoumbourdisj@gmail.com>
- * @license     https://github.com/scoumbourdis/grocery-crud/blob/master/license-grocery-crud.txt
- * @link		http://www.grocerycrud.com/documentation
- */
 class grocery_CRUD_Field_Types
 {
 	/**
@@ -631,6 +599,7 @@ class grocery_CRUD_Model_Driver extends grocery_CRUD_Field_Types
 					}
 				}
 			}
+                                                                    
 		}
 	}
 
@@ -1285,7 +1254,7 @@ class grocery_CRUD_Model_Driver extends grocery_CRUD_Field_Types
 			}
 			else
 			{
-				$this->basic_model->limit($this->limit[0],$this->limit[1]);
+				$this->basic_model->limit($this->limit[0],$this->limit[1]);                                
 			}
 		}
 
@@ -1528,6 +1497,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 		$data->read_url				= $this->getReadUrl();
 		$data->ajax_list_url		= $this->getAjaxListUrl();
 		$data->ajax_list_info_url	= $this->getAjaxListInfoUrl();
+                $data->json_list_url                   = $this->getJsonListUrl();
 		$data->export_url			= $this->getExportToExcelUrl();
 		$data->print_url			= $this->getPrintUrl();
 		$data->actions				= $this->actions;
@@ -2159,11 +2129,11 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 		$input = "<div class='pretty-radio-buttons'>";
 
 		$true_string = is_array($field_info->extras) && array_key_exists(1,$field_info->extras) ? $field_info->extras[1] : $this->default_true_false_text[1];
-		$checked = $value === '1' || ($value_is_null && $field_info->default === '1') ? "checked = 'checked'" : "";
+		$checked = $value === '1' || ($value_is_null && (!empty($field_info->default) && $field_info->default === '1')) ? "checked = 'checked'" : "";
 		$input .= "<label><input id='field-{$field_info->name}-true' class='radio-uniform'  type='radio' name='{$field_info->name}' value='1' $checked /> ".$true_string."</label> ";
 
 		$false_string =  is_array($field_info->extras) && array_key_exists(0,$field_info->extras) ? $field_info->extras[0] : $this->default_true_false_text[0];
-		$checked = $value === '0' || ($value_is_null && $field_info->default === '0') ? "checked = 'checked'" : "";
+		$checked = $value === '0' || ($value_is_null && (!empty($field_info->default) && $field_info->default === '0')) ? "checked = 'checked'" : "";
 		$input .= "<label><input id='field-{$field_info->name}-false' class='radio-uniform' type='radio' name='{$field_info->name}' value='0' $checked /> ".$false_string."</label>";
 
 		$input .= "</div>";
@@ -3125,8 +3095,7 @@ class grocery_CRUD_States extends grocery_CRUD_Layout
 	public function getStateInfo()
 	{
 		$state_code = $this->getStateCode();
-		$segment_object = $this->get_state_info_from_url();
-
+		$segment_object = $this->get_state_info_from_url();                                    
 		$first_parameter = $segment_object->first_parameter;
 		$second_parameter = $segment_object->second_parameter;
 
